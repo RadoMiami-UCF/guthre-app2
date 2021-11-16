@@ -7,25 +7,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-
 <AnchorPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dialogboxes.SearchBox">
    <children>
       <StackPane layoutX="50.0" layoutY="20.0" prefWidth="300.0">
          <children>
             <Label text="Search by..." StackPane.alignment="CENTER_LEFT" />
-            <ChoiceBox prefWidth="150.0" StackPane.alignment="CENTER_RIGHT" />
+            <ChoiceBox fx:id="searchOptionBox" prefWidth="150.0" StackPane.alignment="CENTER_RIGHT" />
          </children>
       </StackPane>
       <StackPane layoutX="50.0" layoutY="55.0" prefWidth="300.0">
          <children>
             <Label text="Search Term:" StackPane.alignment="CENTER_LEFT" />
-            <TextField maxWidth="200.0" minWidth="200.0" prefWidth="200.0" StackPane.alignment="CENTER_RIGHT" />
+            <TextField fx:id="searchTermField" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" StackPane.alignment="CENTER_RIGHT" />
          </children>
       </StackPane>
       <StackPane layoutX="50.0" layoutY="150.0" prefWidth="300.0">
          <children>
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Search" StackPane.alignment="CENTER_RIGHT" />
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Cancel" StackPane.alignment="CENTER_LEFT" />
+            <Button mnemonicParsing="false" onAction="#searchList" prefWidth="100.0" text="Search" StackPane.alignment="CENTER_RIGHT" />
+            <Button mnemonicParsing="false" onAction="#closeDialogBox" prefWidth="100.0" text="Cancel" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
    </children>

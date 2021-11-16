@@ -10,14 +10,14 @@
    <children>
       <StackPane layoutX="25.0" layoutY="20.0" prefWidth="350.0">
          <children>
-            <TextField editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" StackPane.alignment="CENTER_RIGHT" />
+            <TextField fx:id="fileTextField" editable="false" maxWidth="-Infinity" minWidth="-Infinity" onAction="#selectFile" prefWidth="250.0" promptText="Click to select a file." StackPane.alignment="CENTER_RIGHT" />
             <Label text="Save to..." StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
       <StackPane layoutX="50.0" layoutY="100.0" prefWidth="300.0">
          <children>
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Save List" StackPane.alignment="CENTER_RIGHT" />
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Cancel" StackPane.alignment="CENTER_LEFT" />
+            <Button mnemonicParsing="false" onAction="#saveList" prefWidth="100.0" text="Save List" StackPane.alignment="CENTER_RIGHT" />
+            <Button mnemonicParsing="false" onAction="#closeDialogBox" prefWidth="100.0" text="Cancel" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
    </children>

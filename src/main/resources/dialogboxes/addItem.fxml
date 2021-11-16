@@ -10,26 +10,26 @@
    <children>
       <StackPane layoutX="25.0" layoutY="15.0" prefWidth="350.0">
          <children>
-            <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" StackPane.alignment="CENTER_RIGHT" />
+            <TextField fx:id="itemNameField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" StackPane.alignment="CENTER_RIGHT" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Item Name:" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
       <StackPane layoutX="25.0" layoutY="45.0" prefWidth="350.0">
          <children>
-            <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" StackPane.alignment="CENTER_RIGHT" />
+            <TextField fx:id="serialNumberField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" StackPane.alignment="CENTER_RIGHT" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Serial Number:" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
       <StackPane layoutX="25.0" layoutY="75.0" prefWidth="350.0">
          <children>
-            <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" StackPane.alignment="CENTER_RIGHT" />
+            <TextField fx:id="valueField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" StackPane.alignment="CENTER_RIGHT" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Value:" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
       <StackPane layoutX="50.0" layoutY="150.0" prefWidth="300.0">
          <children>
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Add Item" StackPane.alignment="CENTER_RIGHT" />
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Cancel" StackPane.alignment="CENTER_LEFT" />
+            <Button mnemonicParsing="false" onAction="#addItem" prefWidth="100.0" text="Add Item" StackPane.alignment="CENTER_RIGHT" />
+            <Button mnemonicParsing="false" onAction="#closeDialogBox" prefWidth="100.0" text="Cancel" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
    </children>

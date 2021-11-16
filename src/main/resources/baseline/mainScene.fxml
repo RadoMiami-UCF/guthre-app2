@@ -14,7 +14,7 @@
           <Menu mnemonicParsing="false" text="File">
                <items>
                   <MenuItem mnemonicParsing="false" text="Save" />
-                  <MenuItem mnemonicParsing="false" text="Load" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadItemsFromFile" text="Load" />
                </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -27,7 +27,7 @@
             <Menu mnemonicParsing="false" text="Search">
               <items>
                 <MenuItem mnemonicParsing="false" text="Search" />
-                  <MenuItem mnemonicParsing="false" text="Clear Search Terms" />
+                  <MenuItem mnemonicParsing="false" onAction="#clearSearchTerms" text="Clear Search Terms" />
               </items>
             </Menu>
         </menus>

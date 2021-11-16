@@ -5,14 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-
 <AnchorPane prefHeight="150.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dialogboxes.DeleteAllItemsConfirm">
    <children>
       <Label layoutX="140.0" layoutY="20.0" text="Really delete all items?" />
       <StackPane layoutX="50.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="300.0">
          <children>
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Yes, delete" StackPane.alignment="CENTER_RIGHT" />
-            <Button mnemonicParsing="false" prefWidth="100.0" text="No, cancel" StackPane.alignment="CENTER_LEFT" />
+            <Button mnemonicParsing="false" onAction="#deleteAllItems" prefWidth="100.0" text="Yes, delete" StackPane.alignment="CENTER_RIGHT" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeDialogBox" prefWidth="100.0" text="No, cancel" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
    </children>
