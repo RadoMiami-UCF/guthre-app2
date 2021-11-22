@@ -1,0 +1,132 @@
+@startuml
+InventoryManagementApplication o-- FXMLController
+FXMLController o-- InventoryItem
+ListModifyingDialogBox o-- InventoryItem
+ListModifyingDialogBox <|-- AddItem
+ListModifyingDialogBox <|-- DeleteAllItemsConfirm
+ListModifyingDialogBox <|-- DeleteItem
+ListModifyingDialogBox <|-- SaveMenu
+ListModifyingDialogBox <|-- SearchBox
+FXMLController o-- "opened by" AddItem
+FXMLController o-- "opened by" SaveMenu
+FXMLController o-- "opened by" LoadMenu
+FXMLController o-- "opened by" DeleteItem
+FXMLController o-- "opened by" DeleteAllItemsConfirm
+FXMLController o-- "opened by" SearchBox
+FXMLController o-- "opened by" CustomizableError
+AddItem o-- "opened by" CustomizableError
+LoadMenu o-- "opened by" CustomizableError
+SaveMenu o-- "opened by" CustomizableError
+SearchBox o-- "opened by" CustomizableError
+
+class InventoryManagementApplication {
+    +void start(Stage stage)
+}
+
+class FXMLController {
+    -{static} final int MIN_NAME_SIZE
+    -{static} final int MAX_NAME_SIZE
+    -{static} final String STYLESHEET_FILE_NAME
+    -{static} final Pattern VALUE_PATTERN
+    -{static} final Pattern SERIAL_NUMBER_PATTERN
+    -TableColumn<Map.Entry<? extends String, ? extends InventoryItem>, String> nameCol
+    -TableColumn<Map.Entry<? extends String, ? extends InventoryItem>, String> serialNumberCol
+    -TableView<Map.Entry<? extends String, ? extends InventoryItem>> tableView
+    -TableColumn<Map.Entry<? extends String, ? extends InventoryItem>, String> valueCol
+    -final ObservableMap<String, InventoryItem> itemHashMap
+    -final ObservableList<Map.Entry<? extends String, ? extends InventoryItem>> observableItemList
+    -final FilteredList<Map.Entry<? extends String, ? extends InventoryItem>> filteredItemList
+    -final SortedList<Map.Entry<? extends String, ? extends InventoryItem>> sortedItemList
+    +void initialize()
+    -void setupColumnEditBehavior()
+    -void addItem()
+    -void deleteItem()
+    -void deleteAllItems()
+    -void loadList()
+    -void saveList()
+    -void searchItems()
+    -void clearSearchTerms()
+    -void openDialogBox(String pathToFXML, String dialogBoxName)
+    +{static} void openErrorBox(String errorString)
+}
+
+class InventoryItem {
+    -StringProperty value
+    -StringProperty name
+    -StringProperty serialNumber
+    +void setValue(String value)
+    +void setName(String name)
+    +void setSerialNumber(String serialNumber)
+    +StringProperty valueProperty()
+    +StringProperty nameProperty()
+    +StringProperty serialNumberProperty()
+    +String getValue()
+    +String getName()
+    +String getSerialNumber()
+}
+
+class ListModifyingDialogBox {
+    #TableView<Map.Entry<? extends String, ? extends InventoryItem>> tableView
+    #ObservableMap<String, InventoryItem> itemHashMap
+    -Button cancelButton
+    #void closeDialogBox()
+    +void setupDialogBox(Map<String, InventoryItem> itemLinkedHashMap, TableView<Map.Entry<? extends String, ? extends InventoryItem>> tableView)
+}
+
+class AddItem {
+    -TextField itemNameField
+    -TextField serialNumberField
+    -TextField valueField
+    -void addItem()
+}
+
+class CustomizableError {
+    -Button continueButton
+    -Text errorField
+    -void setErrorField(String errorString)
+    -void closeDialogBox()
+}
+
+class DeleteAllItemsConfirm {
+    -void deleteAllItems()
+}
+
+class DeleteItem {
+    -final ObservableList<String> observableItemList
+    -ComboBox<String> itemComboBox
+    +void setupDialogBox(Map<String, InventoryItem> itemLinkedHashMap, TableView<Map.Entry<? extends String, ? extends InventoryItem>> tableView)
+    -void deleteItem()
+}
+
+class LoadMenu {
+    -{static} final int VALUE_INDEX_TSV = 2
+    -{static} final int VALUE_INDEX_HTML = 2
+    -{static} final int NAME_INDEX_HTML = 1
+    -final ObservableMap<String, InventoryItem> itemHashMap
+    -File file
+    +void loadList()
+    -void loadFromTSV()
+    -void loadFromJSON()
+    -void loadFromHTML()
+}
+
+class SaveMenu {
+    -TextField fileTextField
+    -File file
+    -void selectFile()
+    -void saveList()
+    -void saveAsTSV()
+    -void saveAsJSON()
+    -void saveAsHTML()
+}
+
+class SearchBox {
+    -{static} final Pattern VALID_SERIAL_NUMBER
+    -FilteredList<Map.Entry<? extends String, ? extends InventoryItem>> filteredItemList
+    -ChoiceBox<String> searchOptionBox
+    -TextField searchTermField
+    +void setFilteredList(FilteredList<Map.Entry<? extends String, ? extends InventoryItem>> filteredItemList)
+    -void initialize()
+    -void searchList()
+}
+@enduml

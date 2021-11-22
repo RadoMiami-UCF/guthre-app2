@@ -13,20 +13,20 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Save" />
-                  <MenuItem mnemonicParsing="false" onAction="#loadItemsFromFile" text="Load" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveList" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadList" text="Load" />
                </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Add Item" />
-              <MenuItem mnemonicParsing="false" text="Delete Item" />
-                  <MenuItem mnemonicParsing="false" text="Delete All Items" />
+                  <MenuItem mnemonicParsing="false" onAction="#addItem" text="Add Item" />
+              <MenuItem mnemonicParsing="false" onAction="#deleteItem" text="Delete Item" />
+                  <MenuItem mnemonicParsing="false" onAction="#deleteAllItems" text="Delete All Items" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Search">
               <items>
-                <MenuItem mnemonicParsing="false" text="Search" />
+                <MenuItem mnemonicParsing="false" onAction="#searchItems" text="Search" />
                   <MenuItem mnemonicParsing="false" onAction="#clearSearchTerms" text="Clear Search Terms" />
               </items>
             </Menu>

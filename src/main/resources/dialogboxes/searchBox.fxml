@@ -24,7 +24,7 @@
       <StackPane layoutX="50.0" layoutY="150.0" prefWidth="300.0">
          <children>
             <Button mnemonicParsing="false" onAction="#searchList" prefWidth="100.0" text="Search" StackPane.alignment="CENTER_RIGHT" />
-            <Button mnemonicParsing="false" onAction="#closeDialogBox" prefWidth="100.0" text="Cancel" StackPane.alignment="CENTER_LEFT" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeDialogBox" prefWidth="100.0" text="Cancel" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
    </children>

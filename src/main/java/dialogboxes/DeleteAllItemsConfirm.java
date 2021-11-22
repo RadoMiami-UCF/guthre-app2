@@ -4,32 +4,17 @@
  */
 package dialogboxes;
 
-import baseline.InventoryItem;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
-import java.util.LinkedHashMap;
-
-public class DeleteAllItemsConfirm {
+public class DeleteAllItemsConfirm extends ListModifyingDialogBox {
 
     @FXML
-    private Button cancelButton;
-
-    private LinkedHashMap<String, InventoryItem> itemLinkedHashMap;
-
-    public void setItemLinkedHashMap(LinkedHashMap<String, InventoryItem> itemLinkedHashMap) {
-        //Set this.itemLinkedHashMap to itemLinkedHashMap.
-    }
-
-    @FXML
-    private void closeDialogBox(ActionEvent event) {
-        //Simply close the dialog box.
-    }
-
-    @FXML
-    private void deleteAllItems(ActionEvent event) {
+    private void deleteAllItems() {
         //Delete all the items in the linked hash map.
+        itemHashMap.clear();
+        //Then, update the tableView.
+        tableView.refresh();
         //Then, close the dialog box.
+        closeDialogBox();
     }
 }

@@ -4,14 +4,12 @@
  */
 package dialogboxes;
 
+import baseline.FXMLController;
 import baseline.InventoryItem;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-import java.util.LinkedHashMap;
-
-public class AddItem {
+public class AddItem extends ListModifyingDialogBox {
 
     @FXML
     private TextField itemNameField;
@@ -22,21 +20,41 @@ public class AddItem {
     @FXML
     private TextField valueField;
 
-    private LinkedHashMap<String, InventoryItem> itemLinkedHashMap;
-
-    public void setItemLinkedHashMap(LinkedHashMap<String, InventoryItem> itemLinkedHashMap) {
-        //Set this.itemLinkedHashMap to itemLinkedHashMap.
-    }
-
     @FXML
-    private void addItem(ActionEvent event) {
-        /*If all the fields are filled out and valid, add an entry to itemLinkedHashMap with the key of the given serial
-        number and an InventoryItem with the correct name, serial number, and value.*/
-        //Then, close the dialog box.
-    }
-
-    @FXML
-    private void closeDialogBox(ActionEvent event) {
-        //Simply close the dialog box.
+    private void addItem() {
+        //If all the fields are filled out and valid,
+        if(itemNameField.getText().length() >= 2) {
+            if(itemNameField.getText().length() <= 256) {
+                if(valueField.getText().matches("\\$\\d+\\.\\d{2}")) {
+                    if(serialNumberField.getText().matches("\\p{IsAlphabetic}-[\\p{IsAlphabetic}\\d]{3}" +
+                            "-[\\p{IsAlphabetic}\\d]{3}-[\\p{IsAlphabetic}\\d]{3}")) {
+                        if(!itemHashMap.containsKey(serialNumberField.getText().toUpperCase())) {
+                            /*add an entry to itemHashMap with the key of the given serial number and an
+                            InventoryItem with the correct name, serial number, and value.*/
+                            itemHashMap.put(serialNumberField.getText().toUpperCase(),
+                                    new InventoryItem(valueField.getText(), itemNameField.getText(),
+                                            serialNumberField.getText().toUpperCase()));
+                            //Then, refresh the TableView so that it's updated with the new item.
+                            tableView.refresh();
+                            //Finally, close the dialog box.
+                            closeDialogBox();
+                        } else {
+                            FXMLController.openErrorBox("That serial number is already in use!");
+                        }
+                    } else {
+                        FXMLController.openErrorBox("Serial number is not formatted correctly! " +
+                                "(Should be in the format A-XXX-XXX-XXX)");
+                    }
+                } else {
+                    FXMLController.openErrorBox("Value is not formatted correctly! " +
+                            "(Should be formatted like $0.12 or $12.34)");
+                }
+            } else {
+                FXMLController.openErrorBox("Name is too long!");
+            }
+        } else {
+            FXMLController.openErrorBox("Name is too short!");
+        }
+        //Otherwise, display an appropriate error.
     }
 }

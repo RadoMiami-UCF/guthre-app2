@@ -18,7 +18,7 @@
       <StackPane layoutY="100.0" prefHeight="25.0" prefWidth="400.0">
          <children>
             <Button mnemonicParsing="false" onAction="#deleteItem" prefWidth="100.0" text="Delete Item" StackPane.alignment="CENTER_RIGHT" />
-            <Button mnemonicParsing="false" onAction="#closeDialogBox" prefWidth="100.0" text="Cancel" StackPane.alignment="CENTER_LEFT" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeDialogBox" prefWidth="100.0" text="Cancel" StackPane.alignment="CENTER_LEFT" />
          </children>
          <padding>
             <Insets left="50.0" right="50.0" />
